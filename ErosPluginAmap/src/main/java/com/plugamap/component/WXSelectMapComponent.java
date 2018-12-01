@@ -845,17 +845,23 @@ public class WXSelectMapComponent extends WXVContainer<FrameLayout> implements L
                         if(firstItem!=null) {
                             obj = new HashMap<>();
                             String title = firstItem.getTitle();
-                            String address = firstItem.getProvinceName()+firstItem.getCityName()+firstItem.getAdName()+"-"+firstItem.getSnippet();
+                            //String address = firstItem.getProvinceName()+firstItem.getCityName()+firstItem.getAdName()+"-"+firstItem.getSnippet();
                             obj.put("title",title);
-                            obj.put("address",address);
+                            obj.put("province",firstItem.getProvinceName());
+                            obj.put("city",firstItem.getCityName());
+                            obj.put("district",firstItem.getAdName());
+                            obj.put("address",firstItem.getSnippet());
                             array.add(obj);
                         }
                         for (PoiItem poiItem:poiItems) {
                             obj = new HashMap<>();
                             String title = poiItem.getTitle();
-                            String address = poiItem.getProvinceName()+poiItem.getCityName()+ poiItem.getAdName() +"-"+ poiItem.getSnippet();
+                            //String address = poiItem.getProvinceName()+poiItem.getCityName()+ poiItem.getAdName() +"-"+ poiItem.getSnippet();
                             obj.put("title",title);
-                            obj.put("address",address);
+                            obj.put("province",poiItem.getProvinceName());
+                            obj.put("city",poiItem.getCityName());
+                            obj.put("district",poiItem.getAdName());
+                            obj.put("address",poiItem.getSnippet());
                             array.add(obj);
                         }
                         HashMap<String, Object> hashmap = new HashMap<String, Object>();
