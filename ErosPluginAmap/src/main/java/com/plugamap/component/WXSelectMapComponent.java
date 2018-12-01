@@ -840,8 +840,8 @@ public class WXSelectMapComponent extends WXVContainer<FrameLayout> implements L
                     poiItems = poiResult.getPois();
                     if (poiItems != null && poiItems.size() > 0) {
                         //updateListview(poiItems);
-                        HashMap<String, String> obj = null;
-                        ArrayList<HashMap<String, String>> array = new ArrayList<>();
+                        HashMap<String, Object> obj = null;
+                        ArrayList<HashMap<String, Object>> array = new ArrayList<>();
                         if(firstItem!=null) {
                             obj = new HashMap<>();
                             String title = firstItem.getTitle();
@@ -851,6 +851,8 @@ public class WXSelectMapComponent extends WXVContainer<FrameLayout> implements L
                             obj.put("city",firstItem.getCityName());
                             obj.put("district",firstItem.getAdName());
                             obj.put("address",firstItem.getSnippet());
+                            obj.put("longitude",firstItem.getLatLonPoint().getLongitude());
+                            obj.put("latitude",firstItem.getLatLonPoint().getLatitude());
                             array.add(obj);
                         }
                         for (PoiItem poiItem:poiItems) {
@@ -862,6 +864,8 @@ public class WXSelectMapComponent extends WXVContainer<FrameLayout> implements L
                             obj.put("city",poiItem.getCityName());
                             obj.put("district",poiItem.getAdName());
                             obj.put("address",poiItem.getSnippet());
+                            obj.put("longitude",poiItem.getLatLonPoint().getLongitude());
+                            obj.put("latitude",poiItem.getLatLonPoint().getLatitude());
                             array.add(obj);
                         }
                         HashMap<String, Object> hashmap = new HashMap<String, Object>();
